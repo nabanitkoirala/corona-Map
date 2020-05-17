@@ -15,7 +15,8 @@ function Mapbox() {
         height: "100vh",
         zoom: 10,
     })
-    const [coronaNepal, setcoronaNepal] = useState([])
+    const [coronaNepal, setcoronaNepal] = useState([]);
+    const [selectedPerson, setselectedPerson] = useState(null);
     useEffect(() => {
         axios.get('https://data.nepalcorona.info/api/v1/covid')
             .then(res => {
@@ -28,6 +29,7 @@ function Mapbox() {
     }, [])
 
     console.log("what is coronanepal>>", coronaNepal);
+
     return (
         <div>
 
@@ -43,7 +45,10 @@ function Mapbox() {
 
                 {coronaNepal.filter((local) => local.currentState === 'recovered').map((local) => (
                     <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
-                        <button className="marker-btn">
+                        <button className="marker-btn" onMouseOver={e => {
+                            e.preventDefault();
+                            setselectedPerson(local);
+                        }}>
                             <img src="/recovered.jpeg" alt="recovered" />
                         </button>
 
@@ -51,7 +56,10 @@ function Mapbox() {
                 ))}
                 {coronaNepal.filter((local) => local.currentState === 'active').map((local) => (
                     <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
-                        <button className="marker-btn">
+                        <button className="marker-btn" onMouseOver={e => {
+                            e.preventDefault();
+                            setselectedPerson(local);
+                        }}>
                             <img src="/ongoing.gif" alt="ongoing" />
                         </button>
 
@@ -59,13 +67,34 @@ function Mapbox() {
                 ))}
                 {coronaNepal.filter((local) => local.currentState === 'death').map((local) => (
                     <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
-                        <button className="marker-btn-dead">
+                        <button className="marker-btn-dead" onMouseOver={e => {
+                            e.preventDefault();
+                            setselectedPerson(local);
+                        }}>
                             <img src="/dead.gif" alt="dead" />
                         </button>
 
                     </Marker>
                 ))}
 
+                {selectedPerson ? (
+                    <Popup latitude={selectedPerson.point.coordinates[1]} longitude={selectedPerson.point.coordinates[0]}
+                        onClose={() => (setselectedPerson(null))}>
+
+
+
+                        <div>
+
+                            <p>Age={selectedPerson.age}</p>
+                            <p>Gender={selectedPerson.gender}</p>
+                            <p>Reported On={selectedPerson.reportedOn}</p>
+                            <p>Recovered On={selectedPerson.recoveredOn}</p>
+                            <p>Transmission Type={selectedPerson.type}</p>
+                            <p>current Status={selectedPerson.currentState}</p>
+                            <p>latitude={selectedPerson.point.coordinates[1]},longitude={selectedPerson.point.coordinates[0]}</p>
+                        </div>
+                    </Popup>
+                ) : null}
 
 
 
