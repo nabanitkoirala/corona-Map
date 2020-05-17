@@ -29,37 +29,48 @@ function Mapbox() {
 
     console.log("what is coronanepal>>", coronaNepal);
     return (
-        <ReactMapGl {...viewPort} mapboxApiAccessToken={process.env.REACT_APP_MAP_ACCESS_TOKEN} mapStyle="mapbox://styles/nabanit/cka7uauty1vpl1ip2f33744yz"
-            onViewportChange={(viewPort) => setviewPort(viewPort)}>
-            {coronaNepal.filter((local) => local.currentState === 'recovered').map((local) => (
-                <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
-                    <button className="marker-btn">
-                        <img src="/recovered.jpeg" alt="recovered" />
-                    </button>
-
-                </Marker>
-            ))}
-            {coronaNepal.filter((local) => local.currentState === 'active').map((local) => (
-                <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
-                    <button className="marker-btn">
-                        <img src="/ongoing.gif" alt="ongoing" />
-                    </button>
-
-                </Marker>
-            ))}
-            {coronaNepal.filter((local) => local.currentState === 'death').map((local) => (
-                <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
-                    <button className="marker-btn-dead">
-                        <img src="/dead.gif" alt="dead" />
-                    </button>
-
-                </Marker>
-            ))}
+        <div>
 
 
 
+            <ReactMapGl {...viewPort} mapboxApiAccessToken="pk.eyJ1IjoibmFiYW5pdCIsImEiOiJja2E4MXR3NDkwNGMxMzJzOWF4Zzk1cmRxIn0.PlAUDME-BUb9gV-DCutXzw" mapStyle="mapbox://styles/nabanit/cka7uauty1vpl1ip2f33744yz"
+                onViewportChange={(viewPort) => setviewPort(viewPort)}>
+                <div className="legend">
+                    <img src="/recovered.jpeg" alt="recovered" />:Recovered<br />
+                    <img src="/ongoing.gif" alt="ongoing" />:Treatment Ongoing<br />
+                    <img src="/dead.gif" alt="dead" />:Death
+                    </div>
 
-        </ReactMapGl>
+                {coronaNepal.filter((local) => local.currentState === 'recovered').map((local) => (
+                    <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
+                        <button className="marker-btn">
+                            <img src="/recovered.jpeg" alt="recovered" />
+                        </button>
+
+                    </Marker>
+                ))}
+                {coronaNepal.filter((local) => local.currentState === 'active').map((local) => (
+                    <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
+                        <button className="marker-btn">
+                            <img src="/ongoing.gif" alt="ongoing" />
+                        </button>
+
+                    </Marker>
+                ))}
+                {coronaNepal.filter((local) => local.currentState === 'death').map((local) => (
+                    <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
+                        <button className="marker-btn-dead">
+                            <img src="/dead.gif" alt="dead" />
+                        </button>
+
+                    </Marker>
+                ))}
+
+
+
+
+            </ReactMapGl>
+        </div>
     )
 
 
