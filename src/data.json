@@ -1,0 +1,102 @@
+{
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "HOTEL_ID": 960,
+                "NAME": "Hotel Hyatt Regency"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.356896,
+                    27.722053
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "HOTEL_ID": 961,
+                "NAME": "Aanapurna Hotel"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.316749,
+                    27.711115
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "HOTEL_ID": 962,
+                "NAME": "Hotel Soltee Crown Plaza"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.291060,
+                    27.700559
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "HOTEL_ID": 963,
+                "NAME": "Dwarika Hotel"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.342568,
+                    27.705294
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "HOTEL_ID": 964,
+                "NAME": "Hotel Yak and Yeti"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.319954,
+                    27.711688
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "HOTEL_ID": 965,
+                "NAME": "The Everest hotel"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.333452,
+                    27.689084
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "HOTEL_ID": 966,
+                "NAME": "Hotel Sangrila"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    85.322351,
+                    27.725314
+                ]
+            }
+        }
+    ]
+}
