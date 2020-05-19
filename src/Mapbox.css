@@ -16,15 +16,9 @@ cursor: pointer;
     
 
 }
-.legend{
-    padding-left: 50px;
-padding-top: 10px;
-    padding-bottom: 10px;
-    width: 300px;
-  height: 600px;
-  border: 1px solid blue;
-  background:gray;
-  color:whitesmoke;
+ .sidenav{
+     height: 100%;
+ } 
   
  
 
@@ -32,7 +26,7 @@ padding-top: 10px;
   
   
 
-}
+
 .legend img{
     width: 15px;
     height: 15px;
@@ -46,5 +40,6 @@ padding-top: 10px;
 }
 
 .popup{
-    padding-right: 80%;
+   justify-content: left;
+   align-content: left  ;
 }
