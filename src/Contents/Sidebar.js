@@ -30,25 +30,25 @@ export default function Sidebar() {
                                     <li className="nav-item">
                                         <a href="./index.html" className="nav-link">
                                             <i className="fas fa-angle-right" />
-                                            <p>Provinence 1</p>
+                                            <p>Province 1</p>
                                         </a>
                                     </li>
                                     <li className="nav-item">
                                         <a href="./index2.html" className="nav-link">
                                             <i className="fas fa-angle-right" />
-                                            <p>Provinence 2</p>
+                                            <p>Province 2</p>
                                         </a>
                                     </li>
                                     <li className="nav-item">
                                         <a href="./index3.html" className="nav-link ">
                                             <i className="fas fa-angle-right" />
-                                            <p>provinence 3</p>
+                                            <p>Bagmati</p>
                                         </a>
                                     </li>
                                     <li className="nav-item">
                                         <a href="./index3.html" className="nav-link ">
                                             <i className="fas fa-angle-right" />
-                                            <p>provinence 4</p>
+                                            <p>Gandaki</p>
                                         </a>
                                     </li>
                                     <li className="nav-item">
@@ -60,13 +60,13 @@ export default function Sidebar() {
                                     <li className="nav-item">
                                         <a href="./index3.html" className="nav-link ">
                                             <i className="fas fa-angle-right" />
-                                            <p>provinence 6</p>
+                                            <p>Karnali</p>
                                         </a>
                                     </li>
                                     <li className="nav-item">
                                         <a href="./index3.html" className="nav-link ">
                                             <i className="fas fa-angle-right" />
-                                            <p>provinence 7</p>
+                                            <p>Sudurpaschim</p>
                                         </a>
                                     </li>
                                 </ul>
