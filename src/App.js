@@ -8,14 +8,14 @@ import Sidebar from './Contents/Sidebar';
 import Footer from './Contents/Footer';
 import Header from './Contents/Header';
 import CoronaNepal from './Contents/Content';
+import Province1 from './province/province1';
 
 function App() {
   return (
     <div>
-
       <Header />
-      <Sidebar />
       <CoronaNepal />
+      <Sidebar />
       <Footer />
     </div>
 

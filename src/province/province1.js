@@ -1,32 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactMapGl, { Marker, Popup } from 'react-map-gl';
-
-
-export default function CoronaNepal() {
+function Province1() {
     const [viewPort, setviewPort] = useState({
-        latitude: 27.713264,
-        longitude: 85.322985,
+        latitude: 27.042144,
+        longitude: 87.610950,
         width: "100vw",
         height: "100vh",
         zoom: 6,
     })
-    const [coronaNepal, setcoronaNepal] = useState([]);
+
+
     const [selectedPerson, setselectedPerson] = useState(null);
-    const [provinence, setprovinence] = useState([]);
+
     const [totalData, setTotalData] = useState([]);
     const [isfinalData, setIsfinalData] = useState(false);
+    const [Prov1, setProv1] = useState([]);
+    const [Prov1total, setProv1total] = useState([]);
+
+
     useEffect(() => {
         axios.get('https://data.nepalcorona.info/api/v1/covid')
             .then(res => {
-                console.log("what is this>>", res);
-                setcoronaNepal(res.data)
-                setprovinence(res.data)
-
+                setProv1(res.data.filter((item) => item.province === 1))
             })
             .catch(err => {
                 console.log(err);
             })
+
 
         axios.get('https://nepalcorona.info/api/v1/data/nepal')
             .then(res => {
@@ -36,26 +37,33 @@ export default function CoronaNepal() {
             .catch(err => {
                 console.log("error>>", err);
             })
+        axios.get('https://data.nepalcorona.info/api/v1/covid/summary')
+            .then(res => {
+                setProv1total([res.data.province])
+
+            })
+            .catch(err => {
+                console.log("error>>", err);
+            })
+
     }, [], [])
 
-
-    console.log("what is coronanepal>>", coronaNepal);
-    console.log("what is provinence>>", provinence);
-    console.log("total data>>", totalData);
-
-
-
+    console.log("prov1 data>>>", Prov1);
+    console.log("prov1 total>>", Prov1total);
     return (
         <div>
-
             <div>
-
                 {/* Content Wrapper. Contains page content */}
                 <div className="content-wrapper">
                     {/* Content Header (Page header) */}
                     <div className="content-header">
                         <div className="container-fluid">
+                            <div className="row mb-2">
+                                <div className="col-sm-6">
+                                    <h1 className="m-0 text-dark">Overall</h1>
+                                </div>{/* /.col */}
 
+                            </div>{/* /.row */}
                         </div>{/* /.container-fluid */}
                     </div>
                     {/* /.content-header */}
@@ -68,7 +76,7 @@ export default function CoronaNepal() {
                                     <div className="info-box">
                                         <span className="info-box-icon bg-info elevation-1"><i className="fas fa-lungs-virus" /></span>
                                         <div className="info-box-content">
-                                            <span className="info-box-text">Total Infected</span>
+                                            <span className="info-box-text">Infected</span>
                                             <span className="info-box-number">
                                                 {isfinalData ? totalData.map((item) => (<p>{item.tested_positive}</p>)) : <p>Isloading</p>}
                                             </span>
@@ -82,7 +90,7 @@ export default function CoronaNepal() {
                                     <div className="info-box mb-3">
                                         <span className="info-box-icon bg-success elevation-1"><i className="fas fa-band-aid" /></span>
                                         <div className="info-box-content">
-                                            <span className="info-box-text"> Total Recovered</span>
+                                            <span className="info-box-text">Recovered</span>
                                             <span className="info-box-number">{isfinalData ? totalData.map((item) => (<p>{item.recovered}</p>)) : <p>Isloading</p>}</span>
                                         </div>
                                         {/* /.info-box-content */}
@@ -96,7 +104,7 @@ export default function CoronaNepal() {
                                     <div className="info-box mb-3">
                                         <span className="info-box-icon bg-danger elevation-1"><i className="fas fa-bed" /></span>
                                         <div className="info-box-content">
-                                            <span className="info-box-text">Total Deaths</span>
+                                            <span className="info-box-text">Deaths</span>
                                             <span className="info-box-number">{isfinalData ? totalData.map((item) => (<p>{item.deaths}</p>)) : <p>Isloading</p>}</span>
                                         </div>
                                         {/* /.info-box-content */}
@@ -121,7 +129,7 @@ export default function CoronaNepal() {
 
                             <div className="row">
                                 {/* Left col */}
-                                <div className="col-md-12">
+                                <div className="col-md-8">
                                     {/* MAP & BOX PANE */}
                                     <div className="card">
 
@@ -139,9 +147,9 @@ export default function CoronaNepal() {
                                                                 <img src="/ongoing.gif" alt="ongoing" />:Treatment Ongoing<br />
                                                                 <img src="/dead.gif" alt="dead" />:Death
 
-                                                        </div>
+                                                    </div>
 
-                                                            {coronaNepal.filter((local) => local.currentState === 'recovered').map((local) => (
+                                                            {Prov1.filter((local) => local.currentState === 'recovered').map((local) => (
                                                                 <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
                                                                     <button className="marker-btn" onClick={e => {
                                                                         e.preventDefault();
@@ -152,7 +160,7 @@ export default function CoronaNepal() {
 
                                                                 </Marker>
                                                             ))}
-                                                            {coronaNepal.filter((local) => local.currentState === 'active').map((local) => (
+                                                            {Prov1.filter((local) => local.currentState === 'active').map((local) => (
                                                                 <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
                                                                     <button className="marker-btn" onClick={e => {
                                                                         e.preventDefault();
@@ -163,7 +171,7 @@ export default function CoronaNepal() {
 
                                                                 </Marker>
                                                             ))}
-                                                            {coronaNepal.filter((local) => local.currentState === 'death').map((local) => (
+                                                            {Prov1.filter((local) => local.currentState === 'deaths').map((local) => (
                                                                 <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
                                                                     <button className="marker-btn-dead" onClick={e => {
                                                                         e.preventDefault();
@@ -207,7 +215,50 @@ export default function CoronaNepal() {
                                     </div>
 
                                 </div>
+                                {/* /.col */}
+                                <div className="col-md-4">
+                                    {/* Info Boxes Style 2 */}
+                                    <div className="info-box mb-3 bg-warning">
+                                        <span className="info-box-icon"><i className="fas fa-tag" /></span>
+                                        <div className="info-box-content">
+                                            <span className="info-box-text">Inventory</span>
+                                            <span className="info-box-number">5,200</span>
+                                        </div>
+                                        {/* /.info-box-content */}
+                                    </div>
+                                    {/* /.info-box */}
+                                    <div className="info-box mb-3 bg-success">
+                                        <span className="info-box-icon"><i className="far fa-heart" /></span>
+                                        <div className="info-box-content">
+                                            <span className="info-box-text">Mentions</span>
+                                            <span className="info-box-number">92,050</span>
+                                        </div>
+                                        {/* /.info-box-content */}
+                                    </div>
+                                    {/* /.info-box */}
+                                    <div className="info-box mb-3 bg-danger">
+                                        <span className="info-box-icon"><i className="fas fa-cloud-download-alt" /></span>
+                                        <div className="info-box-content">
+                                            <span className="info-box-text">Downloads</span>
+                                            <span className="info-box-number">114,381</span>
+                                        </div>
+                                        {/* /.info-box-content */}
+                                    </div>
+                                    {/* /.info-box */}
+                                    <div className="info-box mb-3 bg-info">
+                                        <span className="info-box-icon"><i className="far fa-comment" /></span>
+                                        <div className="info-box-content">
+                                            <span className="info-box-text">Direct Messages</span>
+                                            <span className="info-box-number">163,921</span>
+                                        </div>
+                                        {/* /.info-box-content */}
+                                    </div>
 
+
+
+
+                                </div>
+                                {/* /.col */}
                             </div>
                             {/* /.row */}
                         </div>{/*/. container-fluid */}
@@ -225,3 +276,11 @@ export default function CoronaNepal() {
         </div>
     )
 }
+
+
+
+
+
+
+export default Province1;
+
