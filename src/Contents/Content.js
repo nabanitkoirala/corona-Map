@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactMapGl, { Marker, Popup } from 'react-map-gl';
+import Sidebar from './Sidebar';
+import Footer from './Footer';
+import Header from './Header';
+
 
 
 export default function CoronaNepal() {
@@ -47,7 +51,7 @@ export default function CoronaNepal() {
 
     return (
         <div>
-
+            <Header />
             <div>
 
                 {/* Content Wrapper. Contains page content */}
@@ -221,6 +225,8 @@ export default function CoronaNepal() {
                 </aside>
                 {/* /.control-sidebar */}
             </div>
+            <Sidebar />
+            <Footer />
 
         </div>
     )

@@ -1,5 +1,6 @@
 import React from 'react';
 import './../../src/Mapbox.css';
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
     return (
@@ -7,10 +8,10 @@ export default function Sidebar() {
             {/* Main Sidebar Container */}
             <aside className="main-sidebar sidebar-dark-primary elevation-4 sidenav mt-8">
                 {/* Brand Logo */}
-                <a href="index3.html" className="brand-link">
+                <Link to="/" className="brand-link">
 
                     <span className="brand-text font-weight-light">Corona Data Details</span>
-                </a>
+                </Link>
                 {/* Sidebar */}
                 <div className="sidebar">
                     {/* Sidebar Menu */}
@@ -22,52 +23,52 @@ export default function Sidebar() {
 
                                 <ul className="nav nav-treeview">
                                     <li className="nav-item">
-                                        <a href="./index.html" className="nav-link">
+                                        <Link to="/Overall" className="nav-link">
                                             <i className="fas fa-angle-right" />
                                             <p>Overall</p>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="./index.html" className="nav-link">
+                                        <Link to="/Province1" className="nav-link">
                                             <i className="fas fa-angle-right" />
                                             <p>Province 1</p>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="./index2.html" className="nav-link">
+                                        <Link to="/Province2" className="nav-link">
                                             <i className="fas fa-angle-right" />
                                             <p>Province 2</p>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="./index3.html" className="nav-link ">
+                                        <Link to="/Bagmati" className="nav-link ">
                                             <i className="fas fa-angle-right" />
                                             <p>Bagmati</p>
-                                        </a>
+                                        </Link >
                                     </li>
                                     <li className="nav-item">
-                                        <a href="./index3.html" className="nav-link ">
+                                        <Link to="/Gandaki" className="nav-link ">
                                             <i className="fas fa-angle-right" />
                                             <p>Gandaki</p>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="./index3.html" className="nav-link ">
+                                        <Link to="/Province5" className="nav-link ">
                                             <i className="fas fa-angle-right" />
-                                            <p>provinence 5</p>
-                                        </a>
+                                            <p>Province 5</p>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="./index3.html" className="nav-link ">
+                                        <Link to="/Karnali" className="nav-link ">
                                             <i className="fas fa-angle-right" />
                                             <p>Karnali</p>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="./index3.html" className="nav-link ">
+                                        <Link to="/Sudurpaschim" className="nav-link ">
                                             <i className="fas fa-angle-right" />
                                             <p>Sudurpaschim</p>
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </li>

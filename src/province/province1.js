@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactMapGl, { Marker, Popup } from 'react-map-gl';
+import Header from '../Contents/Header';
+import Footer from '../Contents/Footer';
+import Sidebar from '../Contents/Sidebar';
 function Province1() {
     const [viewPort, setviewPort] = useState({
         latitude: 27.042144,
@@ -52,6 +55,7 @@ function Province1() {
     console.log("prov1 total>>", Prov1total);
     return (
         <div>
+            <Header />
             <div>
                 {/* Content Wrapper. Contains page content */}
                 <div className="content-wrapper">
@@ -217,39 +221,40 @@ function Province1() {
                                 </div>
                                 {/* /.col */}
                                 <div className="col-md-4">
+                                    <h3 className="text-center"><strong><u>Province 1</u></strong></h3>
                                     {/* Info Boxes Style 2 */}
                                     <div className="info-box mb-3 bg-warning">
-                                        <span className="info-box-icon"><i className="fas fa-tag" /></span>
+                                        <span className="info-box-icon"><i className="fas fa-lungs-virus" /></span>
                                         <div className="info-box-content">
-                                            <span className="info-box-text">Inventory</span>
-                                            <span className="info-box-number">5,200</span>
+                                            <span className="info-box-text">Infected</span>
+                                            <span className="info-box-number">{Prov1total.map((item) => item.active[4].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
                                     {/* /.info-box */}
                                     <div className="info-box mb-3 bg-success">
-                                        <span className="info-box-icon"><i className="far fa-heart" /></span>
+                                        <span className="info-box-icon"><i className="fas fa-band-aid" /></span>
                                         <div className="info-box-content">
-                                            <span className="info-box-text">Mentions</span>
-                                            <span className="info-box-number">92,050</span>
+                                            <span className="info-box-text">Recovered</span>
+                                            <span className="info-box-number">{Prov1total.map((item) => item.recovered[2].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
                                     {/* /.info-box */}
                                     <div className="info-box mb-3 bg-danger">
-                                        <span className="info-box-icon"><i className="fas fa-cloud-download-alt" /></span>
+                                        <span className="info-box-icon"><i className="fas fa-bed" /></span>
                                         <div className="info-box-content">
-                                            <span className="info-box-text">Downloads</span>
-                                            <span className="info-box-number">114,381</span>
+                                            <span className="info-box-text">Deaths</span>
+                                            <span className="info-box-number">{Prov1total.map((item, i) => { item.deaths[i].count = item.cases[4].count - (item.recovered[2].count + item.active[4].count) })}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
                                     {/* /.info-box */}
                                     <div className="info-box mb-3 bg-info">
-                                        <span className="info-box-icon"><i className="far fa-comment" /></span>
+                                        <span className="info-box-icon"><i className="fas fa-users" /></span>
                                         <div className="info-box-content">
-                                            <span className="info-box-text">Direct Messages</span>
-                                            <span className="info-box-number">163,921</span>
+                                            <span className="info-box-text">Total Cases</span>
+                                            <span className="info-box-number">{Prov1total.map((item) => item.cases[4].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -272,7 +277,8 @@ function Province1() {
                 </aside>
                 {/* /.control-sidebar */}
             </div>
-
+            <Sidebar />
+            <Footer />
         </div>
     )
 }
