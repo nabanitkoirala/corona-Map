@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     return (
@@ -7,7 +8,7 @@ export default function Header() {
                 {/* Left navbar links */}
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
+                        <Link to="/#" className="nav-link" data-widget="pushmenu" role="button"><i className="fas fa-bars" /></Link>
                     </li>
 
                 </ul>
