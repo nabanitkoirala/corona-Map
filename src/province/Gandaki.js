@@ -246,7 +246,7 @@ function Gandaki() {
                                         <span className="info-box-icon"><i className="fas fa-bed" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Deaths</span>
-                                            <span className="info-box-number">{Gandakitotal.map((item, i) => { item.deaths[i].count = item.cases[2].count - (item.recovered[1].count + item.active[1].count) })}</span>
+                                            <span className="info-box-number">{Gandakitotal.map((item, i) => item.deaths[i].province === 4 ? item.deaths[i].count : '0')}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

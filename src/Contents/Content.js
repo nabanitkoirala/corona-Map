@@ -9,8 +9,8 @@ import Header from './Header';
 
 export default function CoronaNepal() {
     const [viewPort, setviewPort] = useState({
-        latitude: 27.713264,
-        longitude: 85.322985,
+        latitude: 27.042144,
+        longitude: 87.610950,
         width: "100vw",
         height: "100vh",
         zoom: 6,

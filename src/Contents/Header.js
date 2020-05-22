@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
     return (
-        <div>
+        <div className="wrapper">
+            {/* Navbar */}
             <nav className="main-header navbar navbar-expand navbar-white bg-primary navbar-light">
                 {/* Left navbar links */}
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link to="/#" className="nav-link" data-widget="pushmenu" role="button"><i className="fas fa-bars" /></Link>
+                        <Link to="#" className="nav-link" data-widget="pushmenu" role="button"><i className="fas fa-bars" /></Link>
                     </li>
-
                 </ul>
                 {/* SEARCH FORM */}
                 <form className="form-inline ml-3">
@@ -23,14 +23,8 @@ export default function Header() {
                         </div>
                     </div>
                 </form>
-                {/* Right navbar links */}
-                <ul className="navbar-nav ml-auto">
-
-                </ul>
             </nav>
             {/* /.navbar */}
-
         </div>
-
     )
 }

@@ -228,7 +228,7 @@ function Sudurpaschim() {
                                         <span className="info-box-icon"><i className="fas fa-lungs-virus" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Infected</span>
-                                            <span className="info-box-number">{Sudurpaschimtotal.map((item, i) => item.active[i].province === 7 ? item.active[i].count : 'No infected yet')}</span>
+                                            <span className="info-box-number">{Sudurpaschimtotal.map((item, i) => item.active[i].province === 7 ? item.active[i].count : '0')}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -246,7 +246,7 @@ function Sudurpaschim() {
                                         <span className="info-box-icon"><i className="fas fa-bed" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Deaths</span>
-                                            <span className="info-box-number">{Sudurpaschimtotal.map((item, i) => item.deaths[i].province === 7 ? item.deaths[i].count : 'No death yet')}</span>
+                                            <span className="info-box-number">{Sudurpaschimtotal.map((item, i) => item.deaths[i].province === 7 ? item.deaths[i].count : '0')}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

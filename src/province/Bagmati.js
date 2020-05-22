@@ -4,6 +4,8 @@ import ReactMapGl, { Marker, Popup } from 'react-map-gl';
 import Header from '../Contents/Header';
 import Footer from '../Contents/Footer';
 import Sidebar from '../Contents/Sidebar';
+
+
 function Bagmati() {
     const [viewPort, setviewPort] = useState({
         latitude: 27.042144,
@@ -206,9 +208,6 @@ function Bagmati() {
                                                                     </div>
                                                                 </Popup>
                                                             ) : null}
-
-
-
                                                         </ReactMapGl>
                                                     </div>
                                                 </div>
@@ -259,10 +258,6 @@ function Bagmati() {
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
-
-
-
-
                                 </div>
                                 {/* /.col */}
                             </div>

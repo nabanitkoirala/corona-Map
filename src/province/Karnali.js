@@ -246,7 +246,7 @@ function Karnali() {
                                         <span className="info-box-icon"><i className="fas fa-bed" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Deaths</span>
-                                            <span className="info-box-number">{Karnalitotal.map((item, i) => item.deaths[i].province === 6 ? item.deaths[i].count : 'No Deaths Yet')}</span>
+                                            <span className="info-box-number">{Karnalitotal.map((item, i) => item.deaths[i].province === 6 ? item.deaths[i].count : '0')}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

@@ -245,7 +245,7 @@ function Province1() {
                                         <span className="info-box-icon"><i className="fas fa-bed" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Deaths</span>
-                                            <span className="info-box-number">{Prov1total.map((item, i) => { item.deaths[i].count = item.cases[4].count - (item.recovered[2].count + item.active[4].count) })}</span>
+                                            <span className="info-box-number">{Prov1total.map((item, i) => item.deaths[i].province === 1 ? item.deaths[i].count : '0')}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
