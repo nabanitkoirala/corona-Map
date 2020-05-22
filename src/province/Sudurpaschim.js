@@ -228,7 +228,7 @@ function Sudurpaschim() {
                                         <span className="info-box-icon"><i className="fas fa-lungs-virus" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Infected</span>
-                                            <span className="info-box-number">{Sudurpaschimtotal.map((item, i) => item.active[i].province === 7 ? item.active[i].count : '0')}</span>
+                                            <span className="info-box-number">{Sudurpaschimtotal.map((item) => item.active[4].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

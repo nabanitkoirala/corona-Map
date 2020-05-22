@@ -9,7 +9,7 @@ export default function Header() {
                 {/* Left navbar links */}
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link to="#" className="nav-link" data-widget="pushmenu" role="button"><i className="fas fa-bars" /></Link>
+                        <Link to="/#" className="nav-link" data-widget="pushmenu" role="button"><i className="fas fa-bars" /></Link>
                     </li>
                 </ul>
                 {/* SEARCH FORM */}

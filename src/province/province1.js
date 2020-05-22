@@ -227,7 +227,7 @@ function Province1() {
                                         <span className="info-box-icon"><i className="fas fa-lungs-virus" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Infected</span>
-                                            <span className="info-box-number">{Prov1total.map((item) => item.active[4].count)}</span>
+                                            <span className="info-box-number">{Prov1total.map((item) => item.active[5].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

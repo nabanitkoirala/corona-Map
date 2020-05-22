@@ -4,6 +4,8 @@ import ReactMapGl, { Marker, Popup } from 'react-map-gl';
 import Header from '../Contents/Header';
 import Footer from '../Contents/Footer';
 import Sidebar from '../Contents/Sidebar';
+import { Link } from 'react-router-dom';
+
 
 
 function Bagmati() {
@@ -17,11 +19,18 @@ function Bagmati() {
 
 
     const [selectedPerson, setselectedPerson] = useState(null);
-
     const [totalData, setTotalData] = useState([]);
     const [isfinalData, setIsfinalData] = useState(false);
     const [Bagmati, setBagmati] = useState([]);
     const [Bagmatitotal, setBagmatitotal] = useState([]);
+    const [Bagdist, setBagdist] = useState([]);
+
+
+
+
+
+
+
 
 
     useEffect(() => {
@@ -51,10 +60,26 @@ function Bagmati() {
                 console.log("error>>", err);
             })
 
-    }, [], [])
+        axios.get('https://data.nepalcorona.info/api/v1/districts')
+
+            .then(res => {
+                setBagdist(res.data.filter((item) => item.province === 3))
+
+
+            })
+            .catch(err => {
+                console.log("error>>", err);
+            })
+
+
+    }, [], [], [])
+
 
     console.log("Bagmati data>>>", Bagmati);
-    console.log("prov1 total>>", Bagmatitotal);
+    console.log("Bagmati total>>", Bagmatitotal);
+    console.log("Districts>>", Bagdist);
+
+
     return (
         <div>
             <Header />
@@ -227,7 +252,7 @@ function Bagmati() {
                                         <span className="info-box-icon"><i className="fas fa-lungs-virus" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Infected</span>
-                                            <span className="info-box-number">{Bagmatitotal.map((item) => item.active[5].count)}</span>
+                                            <span className="info-box-number">{Bagmatitotal.map((item) => item.active[6].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -273,9 +298,116 @@ function Bagmati() {
                 </aside>
                 {/* /.control-sidebar */}
             </div>
-            <Sidebar />
+            {/* Main Sidebar Container */}
+            < aside className="main-sidebar sidebar-dark-primary elevation-4" >
+                {/* Brand Logo */}
+                < Link to="/overall" className="brand-link" >
+                    <span className="brand-text font-weight-light">Corona Data Nepal</span>
+                </Link >
+                {/* Sidebar */}
+                < div className="sidebar" >
+
+                    {/* Sidebar Menu */}
+                    < nav className="mt-2" >
+                        <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            {/* Add icons to the links using the .nav-icon class
+with font-awesome or any other icon font library */}
+                            <li className="nav-item has-treeview">
+                                <Link to="/#" className="nav-link active">
+                                    <i className="nav-icon fas fa-tachometer-alt" />
+                                    <p>
+                                        Province Wise Data
+    <i className="right fas fa-angle-left" />
+                                    </p>
+                                </Link>
+
+                                <ul className="nav nav-treeview">
+                                    <li className="nav-item">
+                                        <Link to="/overall" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Overall</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/province1" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Province1</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/province2" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Province2</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/bagmati" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Bagmati</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/gandaki" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Gandaki</p>
+                                        </Link>
+                                    </li>
+
+                                    <li className="nav-item">
+                                        <Link to="/province5" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Province 5</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/karnali" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Karnali</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/sudurpaschim" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Sudurpaschim</p>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav >
+                    {/* /.sidebar-menu */}
+                </div >
+                {/* /.sidebar */}
+
+                <div className="col-sm-9">
+                    {/* select */}
+                    <div className="form-group">
+
+                        <select className="form-control" onChange={(e) => {
+
+                            console.log("my value is >>", 28);
+                            let FinalDistrict = Bagmati.filter((item) => item.district === 28)
+                            setBagmati(FinalDistrict);
+                        }} >
+                            <option >Choose District</option>
+                            {Bagdist.map((item, _id) => <option key={_id} value={item.id}>{item.title_ne}</option>)}
+
+
+                        </select>
+                    </div>
+                </div>
+
+
+            </aside >
+
+            <aside className="control-sidebar control-sidebar-dark">
+                {/* Control sidebar content goes here */}
+            </aside>
+            {/* /.control-sidebar */}
+
             <Footer />
-        </div>
+        </div >
     )
 }
 
