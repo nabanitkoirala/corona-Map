@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReactMapGl, { Marker, Popup } from 'react-map-gl';
 import Header from '../Contents/Header';
 import Footer from '../Contents/Footer';
-import Sidebar from '../Contents/Sidebar';
+import { Link } from 'react-router-dom';
 function Province1() {
     const [viewPort, setviewPort] = useState({
         latitude: 27.042144,
@@ -20,12 +20,16 @@ function Province1() {
     const [isfinalData, setIsfinalData] = useState(false);
     const [Prov1, setProv1] = useState([]);
     const [Prov1total, setProv1total] = useState([]);
+    const [Prov1dist, setProv1dist] = useState([]);//districts of Bagmati state
+    const [Province1dubs, setProvince1dubs] = useState([]);//duplicate data of bagmati fetched from api for seleccting district form province
+
 
 
     useEffect(() => {
         axios.get('https://data.nepalcorona.info/api/v1/covid')
             .then(res => {
                 setProv1(res.data.filter((item) => item.province === 1))
+                setProvince1dubs(res.data.filter((item) => item.province === 1))
             })
             .catch(err => {
                 console.log(err);
@@ -43,6 +47,16 @@ function Province1() {
         axios.get('https://data.nepalcorona.info/api/v1/covid/summary')
             .then(res => {
                 setProv1total([res.data.province])
+
+            })
+            .catch(err => {
+                console.log("error>>", err);
+            })
+        axios.get('https://data.nepalcorona.info/api/v1/districts')
+
+            .then(res => {
+                setProv1dist(res.data.filter((item) => item.province === 1))
+
 
             })
             .catch(err => {
@@ -277,7 +291,115 @@ function Province1() {
                 </aside>
                 {/* /.control-sidebar */}
             </div>
-            <Sidebar />
+            {/* Main Sidebar Container */}
+            < aside className="main-sidebar sidebar-dark-primary elevation-4" >
+                {/* Brand Logo */}
+                < Link to="/overall" className="brand-link" >
+                    <span className="brand-text font-weight-light">Corona Data Nepal</span>
+                </Link >
+                {/* Sidebar */}
+                < div className="sidebar" >
+
+                    {/* Sidebar Menu */}
+                    < nav className="mt-2" >
+                        <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            {/* Add icons to the links using the .nav-icon class
+with font-awesome or any other icon font library */}
+                            <li className="nav-item has-treeview">
+                                <Link to="/#" className="nav-link active">
+                                    <i className="nav-icon fas fa-tachometer-alt" />
+                                    <p>
+                                        Province Wise Data
+    <i className="right fas fa-angle-left" />
+                                    </p>
+                                </Link>
+
+                                <ul className="nav nav-treeview">
+                                    <li className="nav-item">
+                                        <Link to="/overall" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Overall</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/province1" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Province1</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/province2" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Province2</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/bagmati" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Bagmati</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/gandaki" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Gandaki</p>
+                                        </Link>
+                                    </li>
+
+                                    <li className="nav-item">
+                                        <Link to="/province5" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Province 5</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/karnali" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Karnali</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/sudurpaschim" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Sudurpaschim</p>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav >
+                    {/* /.sidebar-menu */}
+                </div >
+                {/* /.sidebar */}
+
+                <div className="col-sm-9">
+                    {/* select */}
+                    <div className="form-group">
+
+                        <select className="form-control" onChange={(e) => {
+                            if (e.target.value === "Overall") {
+                                return (setProv1(Province1dubs))
+                            }
+                            else {
+                                return (setProv1(Province1dubs.filter((item) => item.district === Number(e.target.value))))
+                            }
+
+
+
+                        }} >
+                            <option >Choose District</option>
+                            <option value="Overall">Overall</option>
+                            {Prov1dist.map((item, _id) => <option key={_id} value={item.id}>{item.title_ne}</option>)}
+                        </select>
+                    </div>
+                </div>
+            </aside >
+            <aside className="control-sidebar control-sidebar-dark">
+                {/* Control sidebar content goes here */}
+            </aside>
+            {/* /.control-sidebar */}
+
             <Footer />
         </div>
     )

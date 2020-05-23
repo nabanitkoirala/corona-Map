@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReactMapGl, { Marker, Popup } from 'react-map-gl';
 import Header from '../Contents/Header';
 import Footer from '../Contents/Footer';
-import Sidebar from '../Contents/Sidebar';
+
 import { Link } from 'react-router-dom';
 
 
@@ -18,12 +18,15 @@ function Bagmati() {
     })
 
 
-    const [selectedPerson, setselectedPerson] = useState(null);
+    const [selectedPerson, setselectedPerson] = useState(null);//selected patient of bagmati state
     const [totalData, setTotalData] = useState([]);
     const [isfinalData, setIsfinalData] = useState(false);
-    const [Bagmati, setBagmati] = useState([]);
-    const [Bagmatitotal, setBagmatitotal] = useState([]);
-    const [Bagdist, setBagdist] = useState([]);
+    const [Bagmati, setBagmati] = useState([]);//Total data of bagmati state
+    const [Bagmatitotal, setBagmatitotal] = useState([]);//total active,recovered and death cases of bagmati state
+    const [Bagdist, setBagdist] = useState([]);//districts of Bagmati state
+    const [Bagmatidubs, setBagmatidubs] = useState([]);//duplicate data of bagmati fetched from api for seleccting district form province
+
+
 
 
 
@@ -37,6 +40,7 @@ function Bagmati() {
         axios.get('https://data.nepalcorona.info/api/v1/covid')
             .then(res => {
                 setBagmati(res.data.filter((item) => item.province === 3))
+                setBagmatidubs(res.data.filter((item) => item.province === 3))
             })
             .catch(err => {
                 console.log(err);
@@ -75,9 +79,11 @@ function Bagmati() {
     }, [], [], [])
 
 
-    console.log("Bagmati data>>>", Bagmati);
+    console.log("useeffect bagmati>>>", Bagmati);
     console.log("Bagmati total>>", Bagmatitotal);
     console.log("Districts>>", Bagdist);
+    console.log("bagmatidubs>>", Bagmatidubs);
+
 
 
     return (
@@ -385,22 +391,22 @@ with font-awesome or any other icon font library */}
                     <div className="form-group">
 
                         <select className="form-control" onChange={(e) => {
+                            if (e.target.value === "Overall") {
+                                return (setBagmati(Bagmatidubs))
+                            }
+                            else {
+                                return (setBagmati(Bagmatidubs.filter((item) => item.district === Number(e.target.value))))
+                            }
 
-                            console.log("my value is >>", 28);
-                            let FinalDistrict = Bagmati.filter((item) => item.district === 28)
-                            setBagmati(FinalDistrict);
+
                         }} >
                             <option >Choose District</option>
+                            <option value="Overall">Overall</option>
                             {Bagdist.map((item, _id) => <option key={_id} value={item.id}>{item.title_ne}</option>)}
-
-
                         </select>
                     </div>
                 </div>
-
-
             </aside >
-
             <aside className="control-sidebar control-sidebar-dark">
                 {/* Control sidebar content goes here */}
             </aside>
