@@ -26,7 +26,7 @@ COVID19 Nepal Update is a app which provides user complete information about the
 - Data of people infected,recovered or dead in different municipality of a certain state.
 - Graphical representation of data of infected,recovered,deaths according to province.
 ## Dependencies
--@material-ui/core
+- @material-ui/core
 - @testing-library/jest-dom
 - @testing-library/react
 - testing-library/user-event
