@@ -9,13 +9,13 @@ COVID19 Nepal Update is a app which provides user complete information about the
 4.You can also view the app on 'https://coronanepal-map.netlify.app/'.
 
 ## How to use the App
-1.Run the app.
-2.Display shows a navbar,sidebar a map of Nepal and details.
-3.On your content you can see the number of infected,recovered and deaths of people due to COVID19 on the map.
-4.On the content you can find total number of infected,recovered,deaths and Total test due to COVID19 in Nepal.
-5.If you click the individual marking of people in the map you can find the details of those people who are either infected,recovered or dead.
-6.On the sidebar you can find the option to choose the Province wise Data of Nepal due to Covid19,also if we choose a certain province you get another option to choose data according to district of respective province.
-7.When you choose a certain province you can get total number of recovered,infected and Death data due to COVID19 in respective province on the right side of your app.
+- Run the app.
+- Display shows a navbar,sidebar a map of Nepal and details.
+- On your content you can see the number of infected,recovered and deaths of people due to COVID19 on the map.
+- On the content you can find total number of infected,recovered,deaths and Total test due to COVID19 in Nepal.
+- If you click the individual marking of people in the map you can find the details of those people who are either          infected,recovered or dead.
+- On the sidebar you can find the option to choose the Province wise Data of Nepal due to Covid19,also if we choose a certain province you get another option to choose data according to district of respective province.
+- When you choose a certain province you can get total number of recovered,infected and Death data due to COVID19 in respective province on the right side of your app.
 
 ## Features
 - When a app is loaded the data related to COVID19 is fetched from a REST API.
