@@ -43,3 +43,7 @@ cursor: pointer;
    justify-content: left;
    align-content: left  ;
 }
+
+.zoom-button{
+  background: none;
+}

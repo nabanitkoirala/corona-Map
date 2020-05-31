@@ -8,6 +8,9 @@ import Province5 from './province/province5';
 import Karnali from './province/Karnali';
 import Sudurpaschim from './province/Sudurpaschim';
 import Gandaki from './province/Gandaki';
+import Overallhospital from './Hospital Details/Overall';
+import Hospitaldetails from './Hospital Details/Hospitaldetails';
+import overallTimeline from './Timeline Graph/Overall.timeline';
 
 
 
@@ -28,6 +31,9 @@ const Routing = () => {
                 <Route path='/Province5' component={Province5} />
                 <Route path='/Karnali' component={Karnali} />
                 <Route path='/Sudurpaschim' component={Sudurpaschim} />
+                <Route path='/overall-hospital' component={Overallhospital} />
+                <Route path='/timeline-graph' component={overallTimeline} />
+
 
 
 

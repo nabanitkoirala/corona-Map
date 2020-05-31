@@ -81,19 +81,83 @@ with font-awesome or any other icon font library */}
                                     </li>
                                 </ul>
                             </li>
+                            <li className="nav-item has-treeview">
 
+                                <Link to="/#" className="nav-link active">
+                                    <i className="nav-icon fas fa-tachometer-alt" />
+                                    <p>
+                                        Hospital Details
+    <i className="right fas fa-angle-left" />
+                                    </p>
+                                </Link>
+                                <ul className="nav nav-treeview">
+                                    <li className="nav-item">
+                                        <Link to="/overall-hospital" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Overall</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/province1-hospital" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Province1</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/province2-hospital" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Province2</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/bagmati-hospital" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Bagmati</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/gandaki-hospital" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Gandaki</p>
+                                        </Link>
+                                    </li>
+
+                                    <li className="nav-item">
+                                        <Link to="/province5-hospital" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Province 5</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/karnali-hospital" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Karnali</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/sudurpaschim-hospital" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Sudurpaschim</p>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/timeline-graph" className="nav-link">
+                                    <i className="far fa-circle nav-icon" />
+                                    <p>Timeline Graph</p>
+                                </Link>
+                            </li>
                         </ul>
+
                     </nav >
                     {/* /.sidebar-menu */}
                 </div >
                 {/* /.sidebar */}
             </aside >
 
-            <aside className="control-sidebar control-sidebar-dark">
-                {/* Control sidebar content goes here */}
-            </aside>
-            {/* /.control-sidebar */}
 
-        </div>
+
+        </div >
     )
 }

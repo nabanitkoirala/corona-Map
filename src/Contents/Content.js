@@ -8,18 +8,33 @@ import Header from './Header';
 
 
 export default function CoronaNepal() {
+
+
+    const [zoomlevel, setZoomlevel] = useState(6);
     const [viewPort, setviewPort] = useState({
         latitude: 27.042144,
         longitude: 87.610950,
         width: "100vw",
         height: "100vh",
-        zoom: 6,
+        zoom: zoomlevel,
     })
+    const zoomIncrease = (e) => {
+
+        setZoomlevel(zoomlevel + 1)
+
+
+    }
+    const zoomDecrease = (e) => {
+        setZoomlevel(zoomlevel - 1)
+    }
     const [coronaNepal, setcoronaNepal] = useState([]);
     const [selectedPerson, setselectedPerson] = useState(null);
     const [provinence, setprovinence] = useState([]);
     const [totalData, setTotalData] = useState([]);
     const [isfinalData, setIsfinalData] = useState(false);
+    const [Hospital, setHospital] = useState([]);
+
+
     useEffect(() => {
         axios.get('https://data.nepalcorona.info/api/v1/covid')
             .then(res => {
@@ -40,13 +55,23 @@ export default function CoronaNepal() {
             .catch(err => {
                 console.log("error>>", err);
             })
-    }, [], [])
+        axios.get('https://nepalcorona.info/api/v1/hospitals')
+            .then(res => {
+                setHospital(res.data.data)
 
 
-    console.log("what is coronanepal>>", coronaNepal);
-    console.log("what is provinence>>", provinence);
-    console.log("total data>>", totalData);
+            })
+            .catch(err => {
+                console.log("error>>", err);
+            })
 
+    }, [])
+
+
+    console.log("Hospitals list >>", Hospital);
+    console.log("corona", coronaNepal);
+    console.log("viewport", viewPort);
+    console.log("Zoomlevel", zoomlevel);
 
 
     return (
@@ -138,12 +163,18 @@ export default function CoronaNepal() {
                                                         <div className="map" />
                                                         <ReactMapGl className="map-react" {...viewPort} mapboxApiAccessToken="pk.eyJ1IjoibmFiYW5pdCIsImEiOiJja2E4MXR3NDkwNGMxMzJzOWF4Zzk1cmRxIn0.PlAUDME-BUb9gV-DCutXzw" mapStyle="mapbox://styles/nabanit/ckagghg6a0jfi1il7gdyjpt4c"
                                                             onViewportChange={(viewPort) => setviewPort(viewPort)}>
-                                                            <div className="legend">
-                                                                <img src="/recovered.jpeg" alt="recovered" />:Recovered<br />
-                                                                <img src="/ongoing.gif" alt="ongoing" />:Treatment Ongoing<br />
-                                                                <img src="/dead.gif" alt="dead" />:Death
+                                                            <div className="row">
+                                                                <div className="legend col-8">
+                                                                    <img src="/recovered.jpeg" alt="recovered" />:Recovered<br />
+                                                                    <img src="/ongoing.gif" alt="ongoing" />:Treatment Ongoing<br />
+                                                                    <img src="/dead.gif" alt="dead" />:Death
 
                                                         </div>
+                                                                <div className="col-4 zoom-button">
+                                                                    <button type='button' onClick={zoomIncrease}>+</button>
+                                                                    <button type='button' onClick={zoomDecrease}>-</button>
+                                                                </div>
+                                                            </div>
 
                                                             {coronaNepal.filter((local) => local.currentState === 'recovered').map((local) => (
                                                                 <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
