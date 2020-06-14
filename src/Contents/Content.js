@@ -166,8 +166,8 @@ export default function CoronaNepal() {
                                                             <div className="row">
                                                                 <div className="legend col-8">
                                                                     <img src="/recovered.jpeg" alt="recovered" />:Recovered<br />
-                                                                    <img src="/yellow.jpeg" alt="ongoing" />:Treatment Ongoing<br />
-                                                                    <img src="/red.jpeg" alt="dead" />:Death
+                                                                    <img src="/yellow.jpg" alt="ongoing" />:Treatment Ongoing<br />
+                                                                    <img src="/red.jpg" alt="dead" />:Death
                                                             </div>
 
                                                             </div>
@@ -189,7 +189,7 @@ export default function CoronaNepal() {
                                                                         e.preventDefault();
                                                                         setselectedPerson(local);
                                                                     }}>
-                                                                        <img src="/yellow.jpeg" alt="ongoing" />
+                                                                        <img src="/yellow.jpg" alt="ongoing" />
                                                                     </button>
 
                                                                 </Marker>
@@ -200,7 +200,7 @@ export default function CoronaNepal() {
                                                                         e.preventDefault();
                                                                         setselectedPerson(local);
                                                                     }}>
-                                                                        <img src="/red.jpeg" alt="dead" />
+                                                                        <img src="/red.jpg" alt="dead" />
                                                                     </button>
 
                                                                 </Marker>
