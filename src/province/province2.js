@@ -191,7 +191,7 @@ function Province2() {
 
                                                                 </Marker>
                                                             ))}
-                                                            {Province2.filter((local) => local.currentState === 'deaths').map((local) => (
+                                                            {Province2.filter((local) => local.currentState === 'death').map((local) => (
                                                                 <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
                                                                     <button className="marker-btn-dead" onClick={e => {
                                                                         e.preventDefault();

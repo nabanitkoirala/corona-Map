@@ -190,7 +190,7 @@ function Karnali() {
 
                                                                 </Marker>
                                                             ))}
-                                                            {Karnali.filter((local) => local.currentState === 'deaths').map((local) => (
+                                                            {Karnali.filter((local) => local.currentState === 'death').map((local) => (
                                                                 <Marker key={local.id} latitude={local.point.coordinates[1]} longitude={local.point.coordinates[0]}>
                                                                     <button className="marker-btn-dead" onClick={e => {
                                                                         e.preventDefault();
