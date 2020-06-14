@@ -189,7 +189,7 @@ export default function CoronaNepal() {
                                                                         e.preventDefault();
                                                                         setselectedPerson(local);
                                                                     }}>
-                                                                        <img src="/ongoing.gif" alt="ongoing" />
+                                                                        <img src="/yellow.jpeg" alt="ongoing" />
                                                                     </button>
 
                                                                 </Marker>
@@ -200,7 +200,7 @@ export default function CoronaNepal() {
                                                                         e.preventDefault();
                                                                         setselectedPerson(local);
                                                                     }}>
-                                                                        <img src="/dead.gif" alt="dead" />
+                                                                        <img src="/red.jpeg" alt="dead" />
                                                                     </button>
 
                                                                 </Marker>
