@@ -166,14 +166,10 @@ export default function CoronaNepal() {
                                                             <div className="row">
                                                                 <div className="legend col-8">
                                                                     <img src="/recovered.jpeg" alt="recovered" />:Recovered<br />
-                                                                    <img src="/ongoing.gif" alt="ongoing" />:Treatment Ongoing<br />
-                                                                    <img src="/dead.gif" alt="dead" />:Death
+                                                                    <img src="/yellow.jpeg" alt="ongoing" />:Treatment Ongoing<br />
+                                                                    <img src="/red.jpeg" alt="dead" />:Death
+                                                            </div>
 
-                                                        </div>
-                                                                <div className="col-4 zoom-button">
-                                                                    <button type='button' onClick={zoomIncrease}>+</button>
-                                                                    <button type='button' onClick={zoomDecrease}>-</button>
-                                                                </div>
                                                             </div>
 
                                                             {coronaNepal.filter((local) => local.currentState === 'recovered').map((local) => (
