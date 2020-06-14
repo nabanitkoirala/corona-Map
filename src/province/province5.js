@@ -251,7 +251,7 @@ function Province5() {
                                         <span className="info-box-icon"><i className="fas fa-band-aid" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Recovered</span>
-                                            <span className="info-box-number">{Province5total.map((item) => item.recovered[0].count)}</span>
+                                            <span className="info-box-number">{Province5total.map((item) => item.recovered[1].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -260,7 +260,7 @@ function Province5() {
                                         <span className="info-box-icon"><i className="fas fa-bed" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Deaths</span>
-                                            <span className="info-box-number">{Province5total.map((item, i) => item.deaths[i].province === 5 ? item.deaths[i].count : '')}</span>
+                                            <span className="info-box-number">{Province5total.map((item, i) => item.deaths[2].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

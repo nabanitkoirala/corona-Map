@@ -252,7 +252,7 @@ function Sudurpaschim() {
                                         <span className="info-box-icon"><i className="fas fa-band-aid" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Recovered</span>
-                                            <span className="info-box-number">{Sudurpaschimtotal.map((item) => item.recovered[3].count)}</span>
+                                            <span className="info-box-number">{Sudurpaschimtotal.map((item) => item.recovered[4].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -261,7 +261,7 @@ function Sudurpaschim() {
                                         <span className="info-box-icon"><i className="fas fa-bed" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Deaths</span>
-                                            <span className="info-box-number">{Sudurpaschimtotal.map((item, i) => item.deaths[i].province === 7 ? item.deaths[i].count : '0')}</span>
+                                            <span className="info-box-number">{Sudurpaschimtotal.map((item, i) => item.deaths[1].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -270,7 +270,7 @@ function Sudurpaschim() {
                                         <span className="info-box-icon"><i className="fas fa-users" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Total Cases</span>
-                                            <span className="info-box-number">{Sudurpaschimtotal.map((item) => item.cases[5].count)}</span>
+                                            <span className="info-box-number">{Sudurpaschimtotal.map((item) => item.cases[4].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

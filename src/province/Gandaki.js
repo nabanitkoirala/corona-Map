@@ -251,7 +251,7 @@ function Gandaki() {
                                         <span className="info-box-icon"><i className="fas fa-band-aid" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Recovered</span>
-                                            <span className="info-box-number">{Gandakitotal.map((item) => item.recovered[1].count)}</span>
+                                            <span className="info-box-number">{Gandakitotal.map((item) => item.recovered[2].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

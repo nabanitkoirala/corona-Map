@@ -267,7 +267,7 @@ function Bagmati() {
                                         <span className="info-box-icon"><i className="fas fa-band-aid" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Recovered</span>
-                                            <span className="info-box-number">{Bagmatitotal.map((item) => item.recovered[4].count)}</span>
+                                            <span className="info-box-number">{Bagmatitotal.map((item) => item.recovered[5].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -276,7 +276,7 @@ function Bagmati() {
                                         <span className="info-box-icon"><i className="fas fa-bed" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Deaths</span>
-                                            <span className="info-box-number">{Bagmatitotal.map((item) => item.deaths[1].count)}</span>
+                                            <span className="info-box-number">{Bagmatitotal.map((item) => item.deaths[4].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -285,7 +285,7 @@ function Bagmati() {
                                         <span className="info-box-icon"><i className="fas fa-users" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Total Cases</span>
-                                            <span className="info-box-number">{Bagmatitotal.map((item) => item.cases[6].count)}</span>
+                                            <span className="info-box-number">{Bagmatitotal.map((item) => item.cases[5].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

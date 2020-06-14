@@ -253,7 +253,7 @@ function Province2() {
                                         <span className="info-box-icon"><i className="fas fa-band-aid" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Recovered</span>
-                                            <span className="info-box-number">{Province2total.map((item) => item.recovered[5].count)}</span>
+                                            <span className="info-box-number">{Province2total.map((item) => item.recovered[6].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -262,7 +262,7 @@ function Province2() {
                                         <span className="info-box-icon"><i className="fas fa-bed" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Deaths</span>
-                                            <span className="info-box-number">{Province2total.map((item, i) => item.deaths[i].province === 2 ? item.deaths[i].count : '0')}</span>
+                                            <span className="info-box-number">{Province2total.map((item, i) => item.deaths[3].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -271,7 +271,7 @@ function Province2() {
                                         <span className="info-box-icon"><i className="fas fa-users" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Total Cases</span>
-                                            <span className="info-box-number">{Province2total.map((item) => item.cases[3].count)}</span>
+                                            <span className="info-box-number">{Province2total.map((item) => item.cases[6].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

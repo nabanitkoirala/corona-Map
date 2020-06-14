@@ -250,7 +250,7 @@ function Province1() {
                                         <span className="info-box-icon"><i className="fas fa-band-aid" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Recovered</span>
-                                            <span className="info-box-number">{Prov1total.map((item) => item.recovered[2].count)}</span>
+                                            <span className="info-box-number">{Prov1total.map((item) => item.recovered[3].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>
@@ -268,7 +268,7 @@ function Province1() {
                                         <span className="info-box-icon"><i className="fas fa-users" /></span>
                                         <div className="info-box-content">
                                             <span className="info-box-text">Total Cases</span>
-                                            <span className="info-box-number">{Prov1total.map((item) => item.cases[4].count)}</span>
+                                            <span className="info-box-number">{Prov1total.map((item) => item.cases[3].count)}</span>
                                         </div>
                                         {/* /.info-box-content */}
                                     </div>

@@ -7,12 +7,14 @@ cursor: pointer;
 .marker-btn img{
     width: 10px;
     height: 10px;
+    background: none;
     
 
 }
 .marker-btn-dead img{
     width: 15px;
     height: 15px;
+    background: none;
     
 
 }
@@ -30,6 +32,7 @@ cursor: pointer;
 .legend img{
     width: 15px;
     height: 15px;
+    background: none;
     
    
 }
