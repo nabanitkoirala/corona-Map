@@ -161,7 +161,7 @@ export default function CoronaNepal() {
                                                     {/* Map will be created here */}
                                                     <div id="world-map-markers" style={{ height: 600, overflow: 'hidden' }}>
                                                         <div className="map" />
-                                                        <ReactMapGl className="map-react" {...viewPort} mapboxApiAccessToken="pk.eyJ1IjoibmFiYW5pdCIsImEiOiJja2E4MXR3NDkwNGMxMzJzOWF4Zzk1cmRxIn0.PlAUDME-BUb9gV-DCutXzw" mapStyle="mapbox://styles/nabanit/ckagghg6a0jfi1il7gdyjpt4c"
+                                                        <ReactMapGl className="map-react" {...viewPort} mapboxApiAccessToken="pk.eyJ1IjoibmFiYW5pdCIsImEiOiJja2E4MXR3NDkwNGMxMzJzOWF4Zzk1cmRxIn0.PlAUDME-BUb9gV-DCutXzw" mapStyle="mapbox://styles/nabanit/ckbf793na1xtg1ik4pkkwlh47"
                                                             onViewportChange={(viewPort) => setviewPort(viewPort)}>
                                                             <div className="row">
                                                                 <div className="legend col-8">
